@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController
 class TestController {
 
     @GetMapping("/message")
-    fun index(@RequestParam s : String): String {
-        val url = "https://soopeach.tistory.com/"
+    fun index(@RequestParam s : String, @RequestParam url : String): String {
+        val url = url
         val docs = Jsoup.connect(url).get()
         return docs.select(s).html()
     }
